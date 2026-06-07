@@ -3,113 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Your Access Key</title>
+    <title>NEX-HACK DATABASE SYSTEM</title>
     <style>
         body {
-            background-color: #12002B;
-            color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #05000a;
+            color: #00ff66;
+            font-family: 'Courier New', Courier, monospace;
             text-align: center;
             padding: 20px;
             margin: 0;
         }
         .container {
             max-width: 500px;
-            margin: 50px auto;
-            background: #1d0a3a;
+            margin: 40px auto;
+            background: #0d021a;
             padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+            border-radius: 4px;
+            border: 2px solid #00ff66;
+            box-shadow: 0px 0px 20px rgba(0, 255, 102, 0.2);
         }
-        h2 { margin-bottom: 20px; color: #00ffcc; }
+        h2 { 
+            margin-bottom: 5px; 
+            color: #ff0055; 
+            text-shadow: 0 0 10px #ff0055;
+            font-size: 24px;
+        }
+        .sub-title {
+            color: #00ffff;
+            font-size: 13px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
         .key-box {
-            background: #0d031f;
-            padding: 15px;
-            font-size: 22px;
+            background: #000000;
+            padding: 18px;
+            font-size: 24px;
             font-weight: bold;
-            letter-spacing: 2px;
-            border-radius: 8px;
-            border: 1px dashed #00ffcc;
-            margin: 20px 0;
-            color: #fff;
+            letter-spacing: 3px;
+            border-radius: 4px;
+            border: 1px solid #00ffff;
+            margin: 25px 0;
+            color: #00ffff;
+            text-shadow: 0 0 8px #00ffff;
         }
         button {
-            background: #00ffcc;
-            color: #12002B;
+            background: #ff0055;
+            color: #ffffff;
             border: none;
-            padding: 12px 30px;
+            padding: 14px 40px;
             font-size: 16px;
             font-weight: bold;
-            border-radius: 25px;
+            font-family: 'Courier New', Courier, monospace;
+            border-radius: 4px;
             cursor: pointer;
+            box-shadow: 0 0 10px #ff0055;
             transition: 0.3s;
+            text-transform: uppercase;
         }
-        button:hover { transform: scale(1.05); background: #00cca3; }
+        button:hover { 
+            background: #00ff66; 
+            color: #000;
+            box-shadow: 0 0 15px #00ff66;
+        }
         .ad-space {
             margin: 20px auto;
             min-height: 90px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(0, 255, 102, 0.03);
+            border: 1px dashed rgba(0, 255, 10 green2, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 11px;
+            color: #444;
+        }
+        .status-text {
             font-size: 12px;
-            color: #777;
+            color: #888;
+            margin-top: 15px;
         }
     </style>
 </head>
 <body>
 
-    <!-- TOP BANNER AD PLACE -->
     <div class="ad-space">
-        <!-- Yahan apna Banner Ad Code (Adsterra/Yllix) paste karein -->
-        [TOP BANNER AD PLACEHOLDER]
+        [SYSTEM_AD_NET_TOP_BANNER]
     </div>
 
     <div class="container">
-        <h2>Your Key Is Ready!</h2>
-        <p>Click below to copy your 24-Hour activation key.</p>
+        <h2>BYPASS INJECTOR v2.0</h2>
+        <div class="sub-title">Status: External Server Connected</div>
         
-        <div class="key-box" id="keyDisplay">Loading Key...</div>
+        <p style="color: #aaa; font-size: 14px;">Your generated terminal key is ready for database injection:</p>
         
-        <button onclick="copyKey()">Copy Key</button>
+        <div class="key-box" id="keyDisplay">GENERATING CODE...</div>
+        
+        <button onclick="copyKey()">Inject & Copy Key</button>
+        
+        <div class="status-text" id="statusMessage">Connecting to cloud system...</div>
     </div>
 
-    <!-- BOTTOM BANNER AD PLACE -->
     <div class="ad-space">
-        <!-- Yahan apna dusra Ad Code paste karein -->
-        [BOTTOM BANNER AD PLACEHOLDER]
+        [SYSTEM_AD_NET_BOTTOM_BANNER]
     </div>
 
     <script>
         let generatedKey = "";
 
-        // Page load hote hi backend se secure key fetch karna
+        // Backend se key generate karne ka function
         async function fetchKey() {
             try {
+                document.getElementById('keyDisplay').innerText = "FETCHING DB...";
                 let response = await fetch('/api/generate');
                 let data = await response.json();
+                
                 if(data.key) {
                     generatedKey = data.key;
                     document.getElementById('keyDisplay').innerText = generatedKey;
+                    document.getElementById('statusMessage').innerText = "SUCCESS: Key injected to Firebase!";
+                    document.getElementById('statusMessage').style.color = "#00ff66";
                 } else {
-                    document.getElementById('keyDisplay').innerText = "Error Generating Key";
+                    document.getElementById('keyDisplay').innerText = "ERROR x01";
+                    document.getElementById('statusMessage').innerText = "FAILED: " + (data.error || "Unknown Error");
+                    document.getElementById('statusMessage').style.color = "#ff0055";
                 }
             } catch (err) {
-                document.getElementById('keyDisplay').innerText = "Server Error";
+                document.getElementById('keyDisplay').innerText = "OFFLINE Error";
+                document.getElementById('statusMessage').innerText = "CRITICAL: Backend Server Not Responding.";
+                document.getElementById('statusMessage').style.color = "#ff0055";
             }
         }
 
-        // Key ko clipboard me copy karne ka function
+        // Copy Karne Ka Functional Block
         function copyKey() {
-            if(generatedKey === "") return;
-            navigator.clipboard.writeText(generatedKey);
-            alert("Key Copied Successfully! Now paste it in the App.");
+            if(generatedKey === "" || generatedKey.includes("...")) {
+                alert("Please wait until the server generates a valid cryptographic key!");
+                return;
+            }
+            
+            // Modern copy rule
+            navigator.clipboard.writeText(generatedKey).then(() => {
+                alert("SUCCESS: Key encrypted & copied to clipboard! Paste it inside your application layout.");
+            }).catch(err => {
+                // Alternate option agar browser block kare
+                alert("Your Key: " + generatedKey);
+            });
         }
 
-        // Execute function on load
+        // Run functions immediately
         fetchKey();
     </script>
 </body>
 </html>
-
