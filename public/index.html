@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Your Access Key</title>
+    <style>
+        body {
+            background-color: #12002B;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: #1d0a3a;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+        }
+        h2 { margin-bottom: 20px; color: #00ffcc; }
+        .key-box {
+            background: #0d031f;
+            padding: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-radius: 8px;
+            border: 1px dashed #00ffcc;
+            margin: 20px 0;
+            color: #fff;
+        }
+        button {
+            background: #00ffcc;
+            color: #12002B;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover { transform: scale(1.05); background: #00cca3; }
+        .ad-space {
+            margin: 20px auto;
+            min-height: 90px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BANNER AD PLACE -->
+    <div class="ad-space">
+        <!-- Yahan apna Banner Ad Code (Adsterra/Yllix) paste karein -->
+        [TOP BANNER AD PLACEHOLDER]
+    </div>
+
+    <div class="container">
+        <h2>Your Key Is Ready!</h2>
+        <p>Click below to copy your 24-Hour activation key.</p>
+        
+        <div class="key-box" id="keyDisplay">Loading Key...</div>
+        
+        <button onclick="copyKey()">Copy Key</button>
+    </div>
+
+    <!-- BOTTOM BANNER AD PLACE -->
+    <div class="ad-space">
+        <!-- Yahan apna dusra Ad Code paste karein -->
+        [BOTTOM BANNER AD PLACEHOLDER]
+    </div>
+
+    <script>
+        let generatedKey = "";
+
+        // Page load hote hi backend se secure key fetch karna
+        async function fetchKey() {
+            try {
+                let response = await fetch('/api/generate');
+                let data = await response.json();
+                if(data.key) {
+                    generatedKey = data.key;
+                    document.getElementById('keyDisplay').innerText = generatedKey;
+                } else {
+                    document.getElementById('keyDisplay').innerText = "Error Generating Key";
+                }
+            } catch (err) {
+                document.getElementById('keyDisplay').innerText = "Server Error";
+            }
+        }
+
+        // Key ko clipboard me copy karne ka function
+        function copyKey() {
+            if(generatedKey === "") return;
+            navigator.clipboard.writeText(generatedKey);
+            alert("Key Copied Successfully! Now paste it in the App.");
+        }
+
+        // Execute function on load
+        fetchKey();
+    </script>
+</body>
+</html>
+
