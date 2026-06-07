@@ -3,154 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEX-HACK DATABASE SYSTEM</title>
+    <title>NEX-HACK INJECTION CONTROL TERMINAL</title>
     <style>
         body {
-            background-color: #05000a;
+            background-color: #030008;
             color: #00ff66;
             font-family: 'Courier New', Courier, monospace;
             text-align: center;
-            padding: 20px;
+            padding: 10px;
             margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .main-wrapper {
+            max-width: 700px;
+            margin: 20px auto;
+            width: 100%;
         }
         .container {
-            max-width: 500px;
-            margin: 40px auto;
-            background: #0d021a;
-            padding: 30px;
+            background: #090114;
+            padding: 40px 20px;
             border-radius: 4px;
-            border: 2px solid #00ff66;
-            box-shadow: 0px 0px 20px rgba(0, 255, 102, 0.2);
+            border: 2px solid #ff0055;
+            box-shadow: 0px 0px 30px rgba(255, 0, 85, 0.25);
+            margin: 20px 0;
         }
-        h2 { 
-            margin-bottom: 5px; 
+        h1 { 
+            margin: 0 0 5px 0; 
             color: #ff0055; 
-            text-shadow: 0 0 10px #ff0055;
-            font-size: 24px;
+            text-shadow: 0 0 15px #ff0055;
+            font-size: 28px;
+            font-weight: bold;
         }
         .sub-title {
             color: #00ffff;
-            font-size: 13px;
-            margin-bottom: 25px;
+            font-size: 14px;
+            margin-bottom: 30px;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+        .key-title {
+            color: #ffffff;
+            font-size: 16px;
             letter-spacing: 1px;
+            margin-bottom: 10px;
         }
         .key-box {
             background: #000000;
-            padding: 18px;
-            font-size: 24px;
+            padding: 25px 10px;
+            font-size: 36px;
             font-weight: bold;
-            letter-spacing: 3px;
+            letter-spacing: 5px;
             border-radius: 4px;
-            border: 1px solid #00ffff;
-            margin: 25px 0;
-            color: #00ffff;
-            text-shadow: 0 0 8px #00ffff;
+            border: 2px solid #00ff66;
+            margin: 15px 0;
+            color: #00ff66;
+            text-shadow: 0 0 15px #00ff66;
+            word-wrap: break-word;
         }
-        button {
-            background: #ff0055;
-            color: #ffffff;
-            border: none;
-            padding: 14px 40px;
-            font-size: 16px;
-            font-weight: bold;
-            font-family: 'Courier New', Courier, monospace;
-            border-radius: 4px;
-            cursor: pointer;
-            box-shadow: 0 0 10px #ff0055;
-            transition: 0.3s;
+        .status-text {
+            font-size: 13px;
+            color: #888;
+            margin-top: 20px;
             text-transform: uppercase;
         }
-        button:hover { 
-            background: #00ff66; 
-            color: #000;
-            box-shadow: 0 0 15px #00ff66;
-        }
-        .ad-space {
-            margin: 20px auto;
-            min-height: 90px;
-            background: rgba(0, 255, 102, 0.03);
-            border: 1px dashed rgba(0, 255, 10 green2, 0.2);
+        /* Badi website aur ads ke liye layout rules */
+        .ad-space-large {
+            margin: 15px auto;
+            min-height: 120px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(0, 255, 102, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 11px;
-            color: #444;
+            color: #333;
+            width: 100%;
         }
-        .status-text {
-            font-size: 12px;
-            color: #888;
-            margin-top: 15px;
+        .ad-space-middle {
+            margin: 25px auto;
+            min-height: 150px;
+            background: rgba(0, 255, 255, 0.02);
+            border: 1px dashed rgba(0, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: #333;
+        }
+        .instruction-box {
+            color: #8c8c8c;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: left;
         }
     </style>
 </head>
 <body>
 
-    <div class="ad-space">
-        [SYSTEM_AD_NET_TOP_BANNER]
-    </div>
+    <div class="main-wrapper">
+        <div class="ad-space-large">
+            [ADS_NETWORK_TOP_BANNER_728x90]
+        </div>
 
-    <div class="container">
-        <h2>BYPASS INJECTOR v2.0</h2>
-        <div class="sub-title">Status: External Server Connected</div>
-        
-        <p style="color: #aaa; font-size: 14px;">Your generated terminal key is ready for database injection:</p>
-        
-        <div class="key-box" id="keyDisplay">GENERATING CODE...</div>
-        
-        <button onclick="copyKey()">Inject & Copy Key</button>
-        
-        <div class="status-text" id="statusMessage">Connecting to cloud system...</div>
-    </div>
+        <div class="container">
+            <h1>CLOUD BYPASS SYSTEM v2.5</h1>
+            <div class="sub-title">SECURITY LEVEL: COMPROMISED</div>
+            
+            <div class="ad-space-middle">
+                [ADS_NETWORK_MIDDLE_BANNER_300x250]
+            </div>
 
-    <div class="ad-space">
-        [SYSTEM_AD_NET_BOTTOM_BANNER]
+            <div class="key-title">▼ CRITICAL ACCESS KEY GENERATED BY SERVER ▼</div>
+            
+            <div class="key-box" id="keyDisplay">LOADING...</div>
+            
+            <div class="status-text" id="statusMessage">Initializing secure injection sequence...</div>
+
+            <div class="instruction-box">
+                <span style="color: #ff0055; font-weight:bold;">[!] NOTE FOR USER:</span><br>
+                1. Long-press on the neon green key above to select and copy it.<br>
+                2. Open your Sketchware Panel App.<br>
+                3. Paste this key into the main verification box to activate features for 24 Hours.
+            </div>
+        </div>
+
+        <div class="ad-space-large">
+            [ADS_NETWORK_LOWER_BANNER]
+        </div>
+
+        <div class="ad-space-large" style="margin-top: 30px;">
+            [ADS_NETWORK_FOOTER_BANNER]
+        </div>
     </div>
 
     <script>
         let generatedKey = "";
 
-        // Backend se key generate karne ka function
         async function fetchKey() {
             try {
-                document.getElementById('keyDisplay').innerText = "FETCHING DB...";
+                document.getElementById('keyDisplay').innerText = "CONNECTING...";
                 let response = await fetch('/api/generate');
                 let data = await response.json();
                 
                 if(data.key) {
                     generatedKey = data.key;
+                    // Badi screen par direct text change
                     document.getElementById('keyDisplay').innerText = generatedKey;
-                    document.getElementById('statusMessage').innerText = "SUCCESS: Key injected to Firebase!";
+                    document.getElementById('statusMessage').innerText = "STATUS: Secure Key Synced to Firebase Database successfully.";
                     document.getElementById('statusMessage').style.color = "#00ff66";
                 } else {
-                    document.getElementById('keyDisplay').innerText = "ERROR x01";
-                    document.getElementById('statusMessage').innerText = "FAILED: " + (data.error || "Unknown Error");
+                    document.getElementById('keyDisplay').innerText = "FAIL_CODE_x09";
+                    document.getElementById('statusMessage').innerText = "DATABASE OVERLOAD: " + (data.error || "Key Sync Error");
                     document.getElementById('statusMessage').style.color = "#ff0055";
                 }
             } catch (err) {
-                document.getElementById('keyDisplay').innerText = "OFFLINE Error";
-                document.getElementById('statusMessage').innerText = "CRITICAL: Backend Server Not Responding.";
+                document.getElementById('keyDisplay').innerText = "OFFLINE_ERR";
+                document.getElementById('statusMessage').innerText = "CRITICAL: Bypass API server not responding check credentials.";
                 document.getElementById('statusMessage').style.color = "#ff0055";
             }
         }
 
-        // Copy Karne Ka Functional Block
-        function copyKey() {
-            if(generatedKey === "" || generatedKey.includes("...")) {
-                alert("Please wait until the server generates a valid cryptographic key!");
-                return;
-            }
-            
-            // Modern copy rule
-            navigator.clipboard.writeText(generatedKey).then(() => {
-                alert("SUCCESS: Key encrypted & copied to clipboard! Paste it inside your application layout.");
-            }).catch(err => {
-                // Alternate option agar browser block kare
-                alert("Your Key: " + generatedKey);
-            });
-        }
-
-        // Run functions immediately
+        // Execute automation loop immediately on request
         fetchKey();
     </script>
 </body>
